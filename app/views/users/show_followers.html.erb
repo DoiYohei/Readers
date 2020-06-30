@@ -1,0 +1,29 @@
+<div class="all-followers">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <% if @users.any? %>
+          <% @users.each do |user| %>
+            <% if user.user_image? %>
+              <%= image_tag user.user_image.thumb.url %>
+            <% else %>
+              <%= image_tag "/assets/default.jpeg", :size => '50x50' %>
+            <% end %>
+            <p class="follower-name"><%= link_to "#{user.name}", user %></p>
+            <% if logged_in? && user != current_user %>
+                <div id="follow-forms" class="follow-btn">
+                  <% if current_user.following?(user) %>
+                    <%= render "unfollow", user: user %>
+                  <% else %>
+                    <%= render "follow", user: user %>
+                  <% end %>
+                </div>  
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>フォロワーはいません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

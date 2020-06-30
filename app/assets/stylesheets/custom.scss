@@ -1,0 +1,217 @@
+h1 {
+  font-weight: 100;
+}
+
+.btn-black {
+  border: 1px solid;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.top-hero-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-hero-container {
+  padding-top: 220px;
+  h1 {
+    font-size:56px;
+    margin-bottom:60px;
+  }
+}
+
+
+.form-control {
+  height: 45px;
+}
+
+.users-new-wrapper {
+  width: 100vw;
+  height: 100vh;
+  
+  .users-new-container {
+    padding-top: 220px;
+    
+    .entry-form {
+      margin-top: 70px;
+      margin-bottom: 40px;
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.users-edit-wrapper {
+  width: 100vw;
+  height: 100vh;
+  
+  .users-edit-container {
+    padding-top: 220px;
+    
+    .edit-form {
+      margin-top: 70px;
+      margin-bottom: 40px;
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+.navbar-brand {
+  margin: 0px;
+  padding: 0px;
+  font-size: 30px;
+}
+
+.navbar-item {
+  margin: 16px;
+  p {
+    color: black;
+    margin-top: 16px;
+  }
+  
+  .form-inline {
+    margin-left: 50px;
+  }
+}
+
+.topic-new-wrapper {
+  padding-top: 120px;
+}
+
+.topic-edit-wrapper {
+  padding-top: 120px;
+}
+
+.btn-grey {
+  color: #565656;
+  border: 1px solid #565656;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+  
+  &:hover {
+    color: #565656;
+  }
+}
+
+.topic-index-wrapper {
+  padding-top: 70px;
+  background-color: #fafafa;
+  .topic-index-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    .user-name {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    img {
+      width: 25%;
+      margin: 10px 20px 20px 20px;
+    }
+    .book-tittle {
+      padding-top: 10px;
+    }
+    .book-author {
+      margin-top: 16px;
+    }
+    .hashname {
+      margin-top: 16px;
+      height: 100px;
+    }
+    .topic-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+}
+
+.user-page-menu {
+  padding-top: 150px;
+  #follow_form {
+    padding-right: 50px;
+  }
+  .edit-btn {
+    margin-right: 50px;
+  }
+}
+
+.user-page-wrapper {
+  padding-top: 300px;
+  img {
+    width: 50%;
+  }
+}
+
+.all-followers {
+  padding-top: 150px;
+}
+
+.all-followings {
+  padding-top: 150px;
+}
+
+.topic-wrapper {
+  padding-top: 70px;
+  background-color: #fafafa;
+  .topic-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    .user-icon {
+      height: 25px;
+      img {
+        margin: 0px 0px 0px 20px;
+        width: 25px;
+        height: 25px;
+      }
+      .user-name {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+    }
+    img {
+      width: 25%;
+      margin: 10px 20px 20px 20px;
+    }
+    .book-tittle {
+      padding-top: 10px;
+    }
+    .book-author {
+      margin-top: 16px;
+    }
+    .hashname {
+      margin-top: 16px;
+      height: 100px;
+    }
+    .topic-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+}
+
+.fa-red {
+  color: red;
+}

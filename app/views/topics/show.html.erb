@@ -1,0 +1,33 @@
+<div class="topic-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="topic-single">
+          <%= link_to user_path(id: @topic.user_id), method: :get do %>
+            <% if @topic.user.user_image? %>
+              <%= image_tag @topic.user.user_image.thumb.url %>
+            <% else %>
+              <%= image_tag "/assets/default.jpeg", :size => '25x25' %>
+            <% end %>
+            <h2 class="user-name"><%= @topic.user.name %></h2>
+          <% end %>
+          <p><%= l @topic.created_at, format: :short %></p>
+          <%= image_tag @topic.image.url, class: 'float-left' %>
+          <p class="book-tittle"><%= @topic.book_tittle %></p>
+          <p class="book-author"><%= @topic.author %></p>
+          <p class="hashname"><%= @topic.hashname %></p>
+          <div id="topic-<%= @topic.id %>"><%= render "likes/like", topic: @topic %></div>
+          <% if logged_in? && current_user.id == @topic.user_id %>
+            <%= link_to edit_topic_path(id: @topic.id), method: :get do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to @topic, method: :delete, data: {confirm: "投稿を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>          
+          <p class="topic-text float-left"><%= @topic.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

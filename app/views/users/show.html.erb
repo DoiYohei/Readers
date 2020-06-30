@@ -1,0 +1,54 @@
+<div class="user-page-menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @user.user_image? %>
+          <%= image_tag @user.user_image.thumb.url %>
+        <% else %>
+          <%= image_tag "/assets/default.jpeg", :size => '100x100' %>
+        <% end %>
+        <h2 class="user-name"><%= @user.name %></h2>
+        <p><%= "蔵書数：#{@user.topics.count}" %></p>
+        <p><%= render "level" %></p>
+        <% if logged_in? && @user != current_user %>
+          <div id="follow_form">
+            <% if current_user.following?(@user) %>
+              <%= render "unfollow", user: @user %>
+            <% else %>
+              <%= render "follow", user: @user %>
+            <% end %>
+          </div>
+        <% elsif logged_in? && @user == current_user %>
+          <p>
+            <i class="fas fa-list-ul fa-2x" data-toggle="collapse" data-target="#collapseP" aria-expanded="false" aria-controls="collapseP"></i>
+          </p>
+          <div class="collapse" id="collapseP">
+            <%= link_to "アカウント情報を変更", "/users/#{@user.id}/edit" %>
+            <%= link_to "アカウントを削除", @user, method: :delete, data: {confirm: "アカウントを削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} %>
+          </div>
+        <% end %>
+        <div>
+          <span id="followings">
+            <%= link_to "フォロー(#{@user.followings.count})", followings_user_path(@user) %>
+          </span>
+          <span id="followers">
+            <%= link_to "フォロワー(#{@user.followers.count})", followers_user_path(@user) %>
+          </span>
+        </div>
+        <%= link_to "いいねした投稿", "/users/#{@user.id}/likes", class: "all-likes" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="user-page-wrapper">
+  <div class="container">
+    <div class="row">
+      <% @topics.each do |topic| %>
+        <div class="col-md-3">
+          <%= link_to image_tag(topic.image.url), topic_path(topic), class: "topic-image" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
