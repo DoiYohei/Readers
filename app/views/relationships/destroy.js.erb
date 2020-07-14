@@ -1,3 +1,4 @@
-$("#follow_form").html("<%= j(render "users/follow", user: @user) %>");
+$("#follow-form").html("<%= j(render "users/follow", user: @user) %>");
+$("#follow-<%= @user.id %>-form").html("<%= j(render "users/follow", user: @user) %>");
 $("#followings").html('<%= link_to "フォロー(#{@user.followings.count})", followings_user_path(@user) %>');
 $("#followers").html('<%= link_to "フォロワー(#{@user.followers.count})", followers_user_path(@user) %>');

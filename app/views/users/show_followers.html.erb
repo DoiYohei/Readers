@@ -1,29 +1,31 @@
-<div class="all-followers">
+<div class="all-follow">
   <div class="container">
-    <div class="row">
-      <div class="col-md-5">
-        <% if @users.any? %>
-          <% @users.each do |user| %>
-            <% if user.user_image? %>
-              <%= image_tag user.user_image.thumb.url %>
-            <% else %>
-              <%= image_tag "/assets/default.jpeg", :size => '50x50' %>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <div class="row">
+          <div class="offset-md-4 col-md-4 d-flex flex-row align-items-center follow-single">
+            <%= link_to user do %>
+              <% if user.user_image? %>
+                <%= image_tag user.user_image.thumb.url %>
+              <% else %>
+                <%= image_tag "/assets/default.jpeg", :size => '50x50' %>
+              <% end %>
+              <%= "#{user.name}" %>
             <% end %>
-            <p class="follower-name"><%= link_to "#{user.name}", user %></p>
             <% if logged_in? && user != current_user %>
-                <div id="follow-forms" class="follow-btn">
-                  <% if current_user.following?(user) %>
-                    <%= render "unfollow", user: user %>
-                  <% else %>
-                    <%= render "follow", user: user %>
-                  <% end %>
-                </div>  
+              <span id="follow-<%= user.id %>-form" class="follow-btn">
+                <% if current_user.following?(user) %>
+                  <%= render "unfollow", user: user %>
+                <% else %>
+                  <%= render "follow", user: user %>
+                <% end %>
+              </span>  
             <% end %>
-          <% end %>
-        <% else %>
-          <p>フォロワーはいません</p>
-        <% end %>
-      </div>
-    </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-center">フォロワーはいません</p>
+    <% end %>
   </div>
 </div>

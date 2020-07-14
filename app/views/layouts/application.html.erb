@@ -15,55 +15,34 @@
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
     
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <div class="container">
-        <% if logged_in? %>
+    <% if logged_in? %>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
           <%= link_to user_path(current_user) do %>
             <h1 class="navbar-brand">Readers'</h1>
           <% end %>
-          <ul class="nav navbar-nav">
-          <li class="navbar-item">
-            <%= link_to new_topic_path do %>
-              <p>新規投稿作成</p>
-            <% end %>
-          </li>
-          <li class="navbar-item">
-            <%= link_to logout_path, method: :delete do %>
-              <p>Log out</p>
-            <% end %>
-          </li>
-          <li class="navbar-item">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
-              <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
-            </form>
-          </li>
+          <ul class="nav navbar-nav align-items-center">
+            <li class="navbar-item">
+              <%= link_to new_topic_path do %>
+                <%= "新規投稿作成" %>
+              <% end %>
+            </li>
+            <li class="navbar-item">
+              <%= link_to logout_path, method: :delete do %>
+                <%= "Log out" %>
+              <% end %>
+            </li>
+            <li class="navbar-item ml-auto">
+              <div id="search-box">
+                <%= form_tag('/books/search', method: :get) do %>
+                  <%= text_field_tag :keyword, "", id: "book_search", name: "keyword", placeholder: "検索..." %><button title="検索" type="submit">検索</button>
+                <% end %>
+              </div>
+            </li>
           </ul>
-        <% else %>
-          <%= link_to root_path do %>
-            <h1 class="navbar-brand">Readers'</h1>
-          <% end %>
-          <ul class="nav navbar-nav">
-          <li class="navbar-item">
-            <%= link_to new_user_path do %>
-              <p>Sign up</p>
-            <% end %>
-          </li>
-          <li class="navbar-item">
-            <%= link_to login_path do %>
-              <p>Log in</p>
-            <% end %>
-          </li>
-          <li class="navbar-item">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
-              <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
-            </form>
-          </li>
-          </ul>
-        <% end %>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    <% end %>
     
     <%= yield %>
     

@@ -3,6 +3,7 @@ class LikesController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     unless @topic.favor?(current_user)
       @topic.favor(current_user)
+      topic.create_notification_like!(current_user)
       @topic.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }

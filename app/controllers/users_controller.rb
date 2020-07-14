@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   
   def destroy
+    current_user.destroy
+    redirect_to root_path, success: 'アカウントを削除しました'
+  end
+  
+  def timeline
     @user = User.find(params[:id])
-    if current_user == @user
-      @user.delete
-      redirect_to root_path, success: 'アカウントを削除しました'
-    else
-      render @user
-    end
+    @users = @user.followings
   end
   
   def likes
@@ -28,16 +28,11 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
-    if current_user == @user
-      if @user.update(user_params)
-        redirect_to @user, success: 'アカウント情報を変更しました'
-      else
-        flash.now[:danger] = 'アカウント情報の変更に失敗しました'
-        render :edit
-      end
+    if current_user.update(user_params)
+      redirect_to current_user, success: 'アカウント情報を変更しました'
     else
-      redirect_to @user
+      flash.now[:danger] = 'アカウント情報の変更に失敗しました'
+      render :edit
     end
   end
   

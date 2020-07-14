@@ -1,12 +1,8 @@
 class TopicsController < ApplicationController
   def destroy
-    @topic = Topic.find(params[:id])
-    if current_user.id == @topic.user_id
-      @topic.delete
-      redirect_to current_user, success: '投稿を削除しました'
-    else
-      render @topic
-    end
+    @topic = current_user.topics.find_by(id: params[:id])
+    @topic.destroy
+    redirect_to current_user, success: '投稿を削除しました'
   end
   
   def edit
@@ -14,16 +10,12 @@ class TopicsController < ApplicationController
   end
   
   def update
-    @topic = Topic.find(params[:id])
-    if current_user.id == @topic.user_id
-      if @topic.update(topic_params)
-        redirect_to @topic, success: '投稿を編集しました'
-      else
-        flash.now[:danger] = '編集できませんでした'
-        render :edit
-      end
+    @topic = current_user.topics.find_by(id: params[:id])
+    if @topic.update(topic_params)
+      redirect_to @topic, success: '投稿を編集しました'
     else
-      redirect_to @topic
+      flash.now[:danger] = '編集できませんでした'
+      render :edit
     end
   end
   

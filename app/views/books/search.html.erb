@@ -1,0 +1,14 @@
+<div class="books-search-wrapper">
+  <div class="container">
+    <% if @books.present? %>
+      <% @books.each do |book| %>
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <%= book.title %>
+            <%= book.author %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

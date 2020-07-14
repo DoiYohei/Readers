@@ -1,0 +1,13 @@
+<div class="notifications-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <% if @notifications.exists? %>
+          <%= render @notifications %>
+        <% else %>
+          <p class="text-center">通知はありません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

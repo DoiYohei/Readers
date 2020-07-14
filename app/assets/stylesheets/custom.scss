@@ -1,24 +1,46 @@
 h1 {
   font-weight: 100;
+  font-family: "Apple Chancery", "cursive";
 }
 
-.btn-black {
-  border: 1px solid;
+.text-white {
+  color: #fff;
+}
+
+.btn-white {
+  color: #fff;
+  border: 2px solid #fff;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+  
+  &:hover {
+    color: #fff;
+  }
 }
 
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
+  background-image: url('study.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .top-hero-container {
-  padding-top: 220px;
+  padding-top: 160px;
+  
   h1 {
-    font-size:56px;
-    margin-bottom:60px;
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-weight: 400;
+    margin-bottom: 90px;
   }
 }
 
@@ -27,38 +49,27 @@ h1 {
   height: 45px;
 }
 
-.users-new-wrapper {
-  width: 100vw;
-  height: 100vh;
-  
-  .users-new-container {
-    padding-top: 220px;
-    
-    .entry-form {
-      margin-top: 70px;
-      margin-bottom: 40px;
-      
-      .form-group {
-        margin-bottom: 20px;
-      }
-    }
-  }
+.form-control-file {
+  width: 350px;
+  color: #fff;
 }
 
-.users-edit-wrapper {
+.users-new-wrapper {
+  padding-top: 100px;
   width: 100vw;
   height: 100vh;
+  background-image: image-url('books.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   
-  .users-edit-container {
-    padding-top: 220px;
+  .entry-form {
+    margin-top: 40px;
+    margin-bottom: 40px;
     
-    .edit-form {
-      margin-top: 70px;
-      margin-bottom: 40px;
-      
-      .form-group {
-        margin-bottom: 20px;
-      }
+    .form-group {
+      margin-bottom: 20px;
     }
   }
 }
@@ -70,148 +81,309 @@ h1 {
   z-index: 10000;
 }
 
-.navbar-brand {
-  margin: 0px;
-  padding: 0px;
-  font-size: 30px;
-}
-
-.navbar-item {
-  margin: 16px;
-  p {
-    color: black;
-    margin-top: 16px;
+.navbar {
+  height: 65px;
+  background-color: rgba(0,0,0,0.5);
+  
+  .navbar-brand {
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
   }
   
-  .form-inline {
-    margin-left: 50px;
+  .navbar-nav {
+    width: 680px;
+    
+    a {
+      color: #fff;
+      margin: 30px;
+    }
+    
+    #search-box {
+      margin-left: 50px;
+    }
   }
 }
 
 .topic-new-wrapper {
-  padding-top: 120px;
-}
-
-.topic-edit-wrapper {
-  padding-top: 120px;
-}
-
-.btn-grey {
-  color: #565656;
-  border: 1px solid #565656;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
+  width: 100vw;
+  height: 100vh;
+  padding-top: 100px;
+  background-image: url('book.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   
-  &:hover {
-    color: #565656;
+  .topic-new-contents {
+    margin-top: 70px;
+    
+    #topic_image {
+      color: #fff;
+      font-weight: 600;
+    }
+    
+    .book-info {
+      width: 100%;
+    }
   }
 }
 
-.topic-index-wrapper {
-  padding-top: 70px;
+.user-top-wrapper {
+  padding-bottom: 40px;
   background-color: #fafafa;
-  .topic-index-single {
+  
+  .user-page-profile {
+    height: 220px;
+    margin-top: 80px;
+    padding: 30px;
     background-color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 30px;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
-    .user-name {
-      padding-right: 20px;
-      padding-left: 20px;
-    }
+    
     img {
-      width: 25%;
-      margin: 10px 20px 20px 20px;
-    }
-    .book-tittle {
-      padding-top: 10px;
-    }
-    .book-author {
-      margin-top: 16px;
-    }
-    .hashname {
-      margin-top: 16px;
+      width: 100px;
       height: 100px;
+      border-radius: 50%;
+      margin-top: 20px;
     }
-    .topic-text {
-      padding-right: 20px;
-      padding-left: 20px;
+    
+    #follow-form {
+      width: 100px;
+      margin-top: 10px;
+    }
+    
+    .user-info {
+      width: 250px;
+      margin-left: 25px;
+      
+      p {
+        margin-bottom: 5px;
+        margin-left: 20px;
+      }
+      
+      .notice-icon {
+        margin-left: 10px;
+        margin-right: 15px;
+      }
+      
+      .list-element {
+        margin-left: 48px;
+      }
+    }
+    
+    .link-element {
+      margin-top: 50px;
+      
+      #followers {
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      
+      .all-likes {
+        margin-left: 40px;
+      }
+    }
+  }
+  
+  .user-page-topics {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    
+    .topics-single {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      
+      img {
+        width: 100%;
+      }
     }
   }
 }
 
-.user-page-menu {
+.all-follow {
   padding-top: 150px;
-  #follow_form {
-    padding-right: 50px;
+  
+  .follow-single {
+    font-size: 1.5em;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    
+    .follow-btn {
+      margin-left: 20px;
+      padding-bottom: 10px;
+    }
   }
-  .edit-btn {
-    margin-right: 50px;
-  }
-}
-
-.user-page-wrapper {
-  padding-top: 300px;
-  img {
-    width: 50%;
-  }
-}
-
-.all-followers {
-  padding-top: 150px;
-}
-
-.all-followings {
-  padding-top: 150px;
 }
 
 .topic-wrapper {
-  padding-top: 70px;
+  height: 100vh;
   background-color: #fafafa;
+  
   .topic-single {
     background-color: #fff;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 150px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    
+    .user-contents {
+      margin-left: 20px;
+      
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      
+      .user-name {
+        font-size: 1.5em;
+        font-weight: bolder;
+        margin-left: 5px;
+      }
+      
+      .time-stamp {
+        margin-left: 20px;
+      }
+    }
+    
+    .topic-contents {
+      
+      img {
+        width: 25%;
+        margin: 20px 30px 20px 20px;
+      }
+      
+      .book-info {
+        width: 610px;
+        margin-top: 20px;
+        .book-tittle {
+          padding-top: 10px;
+        }
+        .book-author {
+          margin-top: 16px;
+        }
+        .hashname {
+          margin-top: 16px;
+          height: 100px;
+        }
+        
+        .edit-icon {
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+      }
+    }
+    
+    .topic-text {
+      margin: 10px 20px 10px 20px;
+    }
+  }
+}
+
+.topics-wrapper {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  background-color: #fafafa;
+  
+  .topics-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin-top: 30px;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
-    .user-icon {
-      height: 25px;
+    
+    .user-contents {
+      margin-left: 20px;
+      
       img {
-        margin: 0px 0px 0px 20px;
-        width: 25px;
-        height: 25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
       }
+      
       .user-name {
-        padding-right: 20px;
-        padding-left: 20px;
+        font-size: 1.5em;
+        font-weight: bolder;
+        margin-left: 5px;
+      }
+      
+      .time-stamp {
+        margin-left: 20px;
       }
     }
-    img {
-      width: 25%;
-      margin: 10px 20px 20px 20px;
+    
+    .topic-contents {
+      
+      img {
+        width: 25%;
+        margin: 20px 30px 20px 20px;
+      }
+      
+      .book-info {
+        width: 610px;
+        margin-top: 20px;
+        
+        .book-tittle {
+          padding-top: 10px;
+        }
+        
+        .book-author {
+          margin-top: 16px;
+        }
+        
+        .hashname {
+          margin-top: 16px;
+          height: 100px;
+        }
+      }
     }
-    .book-tittle {
-      padding-top: 10px;
-    }
-    .book-author {
-      margin-top: 16px;
-    }
-    .hashname {
-      margin-top: 16px;
-      height: 100px;
-    }
+    
     .topic-text {
-      padding-right: 20px;
-      padding-left: 20px;
+      margin: 10px 20px 10px 20px;
     }
   }
 }
 
 .fa-red {
   color: red;
+}
+
+.n-circle {
+  padding-left: 1.5rem;
+  padding-top: 0.3rem;
+  color: #efa04c;
+}
+
+.notifications-wrapper {
+  padding-top: 100px;
+}
+
+.notification-single {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 3px;
+  border-bottom: solid 1px #d3d3d3;
+  
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+
+.books-search-wrapper {
+  padding-top: 100px;
 }

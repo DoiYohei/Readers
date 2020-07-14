@@ -1,0 +1,36 @@
+<div class="topics-wrapper">
+  <div class="container">
+    <% @users.each do |user| %>
+      <% @topics = Topic.where(user_id: user.id).includes(:favor_users) %>
+      <% @topics.each do |topic| %>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <div class="topics-single">
+              <div class="user-contents">
+                <%= link_to user_path(id: topic.user.id) do %>
+                  <% if topic.user.user_image? %>
+                    <%= image_tag topic.user.user_image.thumb50.url %>
+                  <% else %>
+                    <%= image_tag "/assets/default.jpeg", :size => '25x25' %>
+                  <% end %>
+                  <span class="user-name"><%= topic.user.name %></span>
+                <% end %>
+                <span class="time-stamp"><%= l topic.created_at, format: :short %></span>
+              </div>
+              <div class="topic-contents d-flex flex-row">
+                <%= image_tag topic.image.url, class: 'float-left' %>
+                <div class="book-info">
+                  <p class="book-tittle"><%= topic.book_tittle %></p>
+                  <p class="book-author"><%= topic.author %></p>
+                  <p class="hashname"><%= topic.hashname %></p>
+                  <span id="topic-<%= topic.id %>"><%= render "likes/like", topic: topic %></span>
+                </div>
+              </div>
+              <p class="topic-text"><%= topic.description %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

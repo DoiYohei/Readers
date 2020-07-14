@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-10 offset-md-1">
           <div class="topic-index-single clearfix">
-            <%= link_to user_path(id: topic.user.id), method: :get do %>
+            <%= link_to user_path(id: topic.user.id) do %>
               <% if topic.user.user_image? %>
                 <%= image_tag topic.user.user_image.thumb.url %>
               <% else %>
