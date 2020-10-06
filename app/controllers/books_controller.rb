@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
   def search
-    if params[:keyword]
-      @books = RakutenWebService::Books::Book.search(keyword: params[:keyword])
-    end
+    @books = Book.search(params[:search])
+  end
+  
+  def show
+    @book = Book.find(params[:id])
   end
 end

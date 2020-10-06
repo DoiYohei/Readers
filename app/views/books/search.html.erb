@@ -1,14 +1,14 @@
 <div class="books-search-wrapper">
   <div class="container">
-    <% if @books.present? %>
-      <% @books.each do |book| %>
-        <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <%= book.title %>
+    <% @books.each do |book| %>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <%= link_to book_path(id: book.id) do %>
+            <%= book.book_tittle %>
             <%= book.author %>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>

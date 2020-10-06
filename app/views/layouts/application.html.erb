@@ -35,7 +35,7 @@
             <li class="navbar-item ml-auto">
               <div id="search-box">
                 <%= form_tag('/books/search', method: :get) do %>
-                  <%= text_field_tag :keyword, "", id: "book_search", name: "keyword", placeholder: "検索..." %><button title="検索" type="submit">検索</button>
+                  <%= text_field_tag :search, "", id: "book_search", placeholder: "検索..." %><button title="検索" type="submit">検索</button>
                 <% end %>
               </div>
             </li>

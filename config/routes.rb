@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :books, only: :show
+  
   resources :notifications, only: :index
   
   resources :relationships, only: [:create, :destroy]
